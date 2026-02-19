@@ -1,0 +1,14 @@
+{
+    "name": "guvi/user-app",
+    "description": "User registration and profile management app",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "mongodb/mongodb": "^1.17",
+        "ext-redis": "*",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {}
+    }
+}
