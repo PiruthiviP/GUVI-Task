@@ -2,7 +2,7 @@
 // MySQL Connection
 $host = '127.0.0.1';
 $db_name = 'guvi_db';
-// Default specific credentials for XAMPP/local setups, can be changed by user
+// Default specific credentials for XAMPP/local setups
 $username = 'root'; 
 $password = ''; 
 

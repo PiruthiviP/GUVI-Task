@@ -12,7 +12,7 @@ $(document).ready(function () {
     var email    = $.trim($('#email').val());
     var password = $('#password').val();
 
-    // ── Client-side validation ──
+    // Client-side validation 
     if (!email || !password) {
       showError('Please enter your email and password.');
       return;
@@ -23,7 +23,7 @@ $(document).ready(function () {
       return;
     }
 
-    // ── Submit via AJAX ──
+    // Submit via AJAX
     setLoading(true);
 
     $.ajax({
@@ -57,7 +57,6 @@ $(document).ready(function () {
     });
   });
 
-  // ── Helpers ──
   function showError(msg) {
     $('#msgErrorText').text(msg);
     $('#msgError').addClass('show');

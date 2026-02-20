@@ -1,8 +1,6 @@
 <?php
-// ─────────────────────────────────────────────
 //  php/login.php  —  POST: login  |  POST: logout
 //  Session token stored in Redis (not PHP session)
-// ─────────────────────────────────────────────
 require_once 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -12,9 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $body   = getRequestBody();
 $action = $body['action'] ?? 'login';
 
-// ──────────────────────────────────────────────
 //  LOGOUT
-// ──────────────────────────────────────────────
 if ($action === 'logout') {
     $token = trim($body['token'] ?? '');
     if ($token) {
@@ -28,9 +24,8 @@ if ($action === 'logout') {
     jsonResponse(['success' => true, 'message' => 'Logged out.']);
 }
 
-// ──────────────────────────────────────────────
 //  LOGIN
-// ──────────────────────────────────────────────
+
 $email    = trim($body['email']    ?? '');
 $password =      $body['password'] ?? '';
 
@@ -45,7 +40,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 try {
     $pdo = getDB();
 
-    // ── Fetch user by email (prepared statement) ──
+    // Fetch user by email
     $stmt = $pdo->prepare(
         'SELECT id, username, email, password FROM users WHERE email = :email LIMIT 1'
     );
@@ -53,14 +48,13 @@ try {
     $user = $stmt->fetch();
 
     if (!$user || !password_verify($password, $user['password'])) {
-        // Generic message — don't reveal which field is wrong
         jsonResponse(['success' => false, 'message' => 'Invalid email or password.'], 401);
     }
 
-    // ── Generate a secure session token ──
+    // Generate a secure session token
     $token = bin2hex(random_bytes(32));   // 64-char hex string
 
-    // ── Store session in Redis with TTL ──
+    // Store session in Redis with TTL
     $redis = getRedis();
     $sessionData = json_encode([
         'user_id'  => $user['id'],

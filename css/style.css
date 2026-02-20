@@ -98,7 +98,7 @@ body::before {
   letter-spacing: -0.03em;
 }
 
-/* ── Headings ── */
+/* Headings and text */
 .auth-title {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
@@ -113,7 +113,7 @@ body::before {
   margin-bottom: 2rem;
 }
 
-/* ── Form elements ── */
+/* Form elements */
 .form-label {
   font-size: 0.8rem;
   font-weight: 500;
@@ -144,7 +144,7 @@ body::before {
 
 .form-select option { background: var(--surface2); }
 
-/* ── Buttons ── */
+/* Buttons  */
 .btn-primary-custom {
   width: 100%;
   padding: 0.8rem;
@@ -206,7 +206,7 @@ body::before {
 
 .btn-danger-custom:hover { background: rgba(255,107,107,0.2); }
 
-/* ── Alert / messages ── */
+/* Alert / messages */
 .msg {
   padding: 0.75rem 1rem;
   border-radius: 10px;
@@ -235,7 +235,7 @@ body::before {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Divider ── */
+/* Divider  */
 .divider {
   display: flex;
   align-items: center;
@@ -252,7 +252,7 @@ body::before {
   background: var(--border);
 }
 
-/* ── Link ── */
+/* Link*/
 .auth-link {
   color: var(--accent);
   text-decoration: none;
@@ -262,7 +262,7 @@ body::before {
 
 .auth-link:hover { opacity: 0.75; text-decoration: underline; }
 
-/* ── Profile specific ── */
+/* Profile specific */
 .profile-header {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
   padding: 2.5rem 2rem 3.5rem;
@@ -325,7 +325,7 @@ body::before {
   margin-left: 0.5rem;
 }
 
-/* ── Spinner ── */
+/* Spinner */
 .spinner {
   display: inline-block;
   width: 16px; height: 16px;
@@ -339,7 +339,7 @@ body::before {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Responsive ── */
+/* Responsive  */
 @media (max-width: 576px) {
   .auth-card { padding: 2rem 1.25rem; border-radius: 18px; }
   .auth-title { font-size: 1.5rem; }

@@ -13,8 +13,6 @@ $(document).ready(function () {
     var email           = $.trim($('#email').val());
     var password        = $('#password').val();
     var confirmPassword = $('#confirmPassword').val();
-
-    // ── Client-side validation ──
     if (!username || !email || !password || !confirmPassword) {
       showError('Please fill in all fields.');
       return;
@@ -40,7 +38,7 @@ $(document).ready(function () {
       return;
     }
 
-    // ── Submit via AJAX ──
+    // Submit via AJAX
     setLoading(true);
 
     $.ajax({
@@ -68,7 +66,7 @@ $(document).ready(function () {
     });
   });
 
-  // ── Helpers ──
+  // Helpers
   function showError(msg) {
     $('#msgErrorText').text(msg);
     $('#msgError').addClass('show');
